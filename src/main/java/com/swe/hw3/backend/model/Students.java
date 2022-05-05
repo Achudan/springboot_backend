@@ -2,6 +2,7 @@ package com.swe.hw3.backend.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -12,6 +13,8 @@ import java.util.Date;
 public class Students {
     @Id
     @Getter@Setter
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     @Column(name="email")
     private String email;
     @Column(name="first_name")
